@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<!-- Catelen Wu, Darren Chan, Kyle Tam -->
+<html>
+	<head>
+		<title>Life Game</title>
+		<link rel = "stylesheet" type = "text/css" href = "dressing.css"/>
+		<style>
+		</style>
+			<script>
+				function initialize()
+				{
+					dataArray = location.search.split("=");
+					stra = dataArray[1].split("&")[0];
+					strb = dataArray[2].split("&")[0];
+					characterImage = document.getElementById("charImg");
+					charImg.src = "images/" + dataArray[3] + ".png";
+					msg = "Hello, " + stra + " " + strb + "!";
+					
+					current_stage = 0;
+					
+					setTimeout(function()
+					{
+						text.innerHTML = "Welcome to your life!";
+					}, 3000);
+					
+					<!--   GAME VARIABLES    -->
+					hunger = 0;
+					energy = 100;
+					health = 100;
+					money = 0;
+					age = 5;
+					characterStats = document.getElementById("stats");
+					characterAge = document.getElementById("age");
+					
+					display();
+				}
+				function choice(option)	
+				{
+					text.innerHTML = document.getElementById(option).innerHTML;
+
+				}
+				
+				function display()
+				{
+					text.innerHTML = msg;
+					characterStats.innerHTML = "HUNGER: " + "<progress id = 'hunger'" + " value= " + hunger + " max = 100" + ">" + "</progress>" + "</br>" + "ENEGRY: " + "<progress id = 'energy'" + " value= " + energy + " max = 100" + ">" + "</progress>" + "</br>" + "HEALTH: " + "<progress id = 'health'" + " value= " + health + " max = 100" + ">" + "</progress>"  + "</br>" + "MONEY: " + "$ " + money;							
+					characterAge.innerHTML = "Age: " + age;
+				}
+				
+			</script>
+	</head>
+	<body onload = "initialize();">
+		<div id = "text"></div>
+		<div id = "age"></div>
+		<div id = "imgDiv">
+			<img id = "charImg"/> 
+		</div> </br>
+		<div id = "stats"></div>
+		<div id = "textArea"></div>
+
+		<div id = "one" onclick = "choice('one');">Home</div>
+		<div id = "two" onclick = "choice('two');">Movies</div>
+		<div id = "three" onclick = "choice('three');">Park</div>
+	</body>
+</html>

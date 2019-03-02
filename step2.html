@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<!-- Catelen Wu, Darren Chan, Kyle Tam -->
+<html>
+	<head>
+		<title>Life Game</title>
+		<style>
+		</style>
+			<script>
+				function initialize()
+				{
+					document.getElementById("text");
+					var stra = location.search.split("=");
+					var strb = stra[1].split("&last");
+					msg = "Hello, " + strb[0] + " " + stra[2] + "!";
+					display();
+					
+					setTimeout(function()
+					{
+						text.innerHTML = "Welcome to your life!";
+					}, 3000);
+					
+					<!--   GAME VARIABLES    -->
+					hunger = 0;
+					energy = 100;
+					health = 100;
+					money = 0;
+					
+					
+					
+				}
+				
+				function display()
+				{
+					text.innerHTML = msg;
+				}
+				
+			</script>
+	</head>
+	<body onload = "initialize();">
+		<div id = "text"></div>
+	</body>
+</html>
