@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!-- Catelen Wu, Darren Chan, Kyle Tam -->
+<html>
+	<head>
+		<title>Game Of Life</title>
+		<link rel = "stylesheet" type = "text/css" href = "character.css"/>
+		<style>
+		</style>
+			<script src = "utility.js"></script> 
+			<script>
+				function initialize()
+				{
+					BOY = 1, GIRL = 2;
+					CURRENT_NUM_GENDER_IMG = 3;
+					randomFirstBoy = ["Jack","Justin","Brian","Richard","William","Andrew","Kevin","Sam","Michael","Anthony"];
+					randomFirstGirl = ["Emily","Sophia","Rachel","Anna","Victoria","Zoey","Grace","Samantha","Lucy","Lilly"];
+					randomLast = ["Smith","Jackson","Johnson","Chan","Li","Brown","Morgan","Miller","Chang","Hill"];
+					
+					characterImage = document.getElementById("charImg");
+					randomizeGender();
+				}
+				function randomizeGender()
+				{
+					rndNum = getRandomInteger(1,CURRENT_NUM_GENDER_IMG);
+					if(getRandomInteger(BOY,GIRL) == BOY)
+					{	
+						theImg = "images/boy_" + rndNum + ".png";
+						gender = BOY;
+						document.getElementById("transferImg").value = "boy_" + rndNum;
+					}
+					else
+					{
+						theImg = "images/girl_" + rndNum + ".png"; 
+						gender = GIRL;
+						document.getElementById("transferImg").value = "girl_" + rndNum;
+					}
+					
+					display();
+					randomName();
+				}
+				
+				function randomName()
+				{
+					if (gender == BOY)
+					{
+						first.value = randomFirstBoy[getRandomInteger(0, randomFirstBoy.length-1)];
+						last.value = randomLast[getRandomInteger(0, randomLast.length-1)];
+					}
+					else if (gender == GIRL)
+					{
+						first.value = randomFirstGirl[getRandomInteger(0, randomFirstGirl.length-1)];
+						last.value = randomLast[getRandomInteger(0, randomLast.length-1)];
+					}
+				}
+				function display()
+				{
+					characterImage.src = theImg; 
+				}
+			</script>
+	</head>
+	<body onload = "initialize();">
+		<div id = "charSelect" >
+			<img id = "charImg" onclick = "randomizeGender();" /> 
+		</div>
+		
+		<form method = "get" action = "game.html">
+		First Name: <input id = "first" type = "text" name = "first"/>
+		Last Name: <input id = "last" type = "text" name = "last"/> <p>
+		<input type = "submit" value = "Set Name"/>
+		<input type = "button" onclick = "randomName();" value = "Random Name"/>
+		<input type = "hidden" id = "transferImg" name = "charImg"/>
+		</form>
+
+	</body>
+</html>

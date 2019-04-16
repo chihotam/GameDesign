@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<!-- Catelen Wu, Darren Chan, Kyle Tam -->
+<html>
+	<head>
+		<title>Game of Life</title>
+		<link rel = "stylesheet" type = "text/css" href = "dressing.css"/>
+		<script src = "utility.js"></script> 
+		<style>
+		</style>
+			<script>
+				function initialize()
+				{
+					gameInPlay = true;
+					elementaryEvents = ["Do you want to draw, do puzzles, or neither?", "Do you want to present your art, read aloud, or daydream?", "What's your favorite activity to play?", "filler1", "filler2", "filler3", "filler4", "filler5","filler6","filler7","filler8"];
+					elementaryChoices = ["Draw;Puzzles;Neither;", "Present;Read;Daydream;", "Dance;Chess;Tag;", "a;b;c;", "a;b;c;", "a;b;c;", "a;b;c;", "a;b;c;", "a;b;c;","a;b;c;","a;b;c;"];
+					
+				
+					highEvents = ["Your best friend wants to hang out. Where do you want to hangout?","The school is having multiple competitions. Which do you want to attend?","The school is having multiple competitions. Which do you want to attend?","filler1b","filler1c","filler1d","filler1e","filler1f","filler1g"];
+					highChoices = ["To the movies!;To the library!;The internet cafe!;","Singing Competition;Math Competition;Neither;","Drawing Contest;Programming Competition;Track Competition;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;"];
+
+					
+					numOfTurns = 0;
+					timeInterval = 0;
+					
+					dataArray = location.search.split("=");
+					stra = dataArray[1].split("&")[0];
+					strb = dataArray[2].split("&")[0];
+					characterImage = document.getElementById("charImg");
+					charImg.src = "images/" + dataArray[3] + ".png";
+					msg = "Hello, " + stra + " " + strb + "!";
+					
+					
+					ELEMENTARY = 0; HIGH = 2; COLLEGE = 3; WORKING = 4; RETIREMENT = 5;
+					current_stage = ELEMENTARY;
+					
+					setTimeout(function()
+					{
+						text.innerHTML = "Welcome to your life!";
+					}, 1000);
+
+								
+					<!--   GAME VARIABLES    --> 
+					energy = 100;
+					health = 100;
+					money = 1000;
+					age = 5;
+					creativity = 0;
+					intelligence = 0;
+					surprise = 0;
+					
+					characterStats = document.getElementById("stats");
+					characterAge = document.getElementById("age");
+					choiceOne = document.getElementById("one");
+					choiceTwo = document.getElementById("two");
+					choiceThree = document.getElementById("three");
+					
+					setTimeout(function()
+					{
+						getEvent();
+						display();
+					}, 5500);
+					display();
+					
+				}
+
+				function isNextStageReady()
+				{
+					if(current_stage == ELEMENTARY && age >= 12)
+					{
+						text.innerHTML = "As your early years fly by, you find yourself to already be in high school...";
+						characterAge.innerHTML = stra + " " + strb + ", " + "Age: " + age;
+						clearChoices();
+						setTimeout(function()
+						{
+							current_stage = HIGH;
+							getEvent();
+							return true;
+						}, 2000);
+					}
+					if(current_stage == HIGH && age >= 19)
+					{	
+						text.innerHTML = "With high school behind you, it is time for you to step into adulthood...";
+						current_stage = COLLEGE;
+						clearChoices();
+					
+					}	
+					if(current_stage == COLLEGE && age >= 26)
+					{
+						text.innerHTML = "Your education has layed the foundations for your life. ";
+						// add different choices for jobs depending on the player's stats 
+					}
+				
+				
+					return false;
+				}
+
+				function getEvent()
+				{
+					if(current_stage == ELEMENTARY)
+					{
+						eventNumber = getRandomInteger(0, elementaryChoices.length - 1)
+						msg = elementaryEvents[eventNumber];
+						
+						choiceA = elementaryChoices[eventNumber].split(";")[0];
+						choiceB = elementaryChoices[eventNumber].split(";")[1];
+						choiceC = elementaryChoices[eventNumber].split(";")[2];
+						
+						display();
+						
+						elementaryEvents.splice(eventNumber, 1);
+						elementaryChoices.splice(eventNumber, 1);
+						
+					}
+					if(current_stage == HIGH)
+					{
+						eventNumber = getRandomInteger(0, highChoices.length - 1)
+						msg = highEvents[eventNumber];
+						
+						choiceA = highChoices[eventNumber].split(";")[0];
+						choiceB = highChoices[eventNumber].split(";")[1];
+						choiceC = highChoices[eventNumber].split(";")[2];
+						
+						highEvents.splice(eventNumber, 1);
+						highChoices.splice(eventNumber, 1);
+					}
+					display();
+				}
+								
+				function clearChoices()
+				{
+					choiceOne.innerHTML = "";
+					choiceTwo.innerHTML = "";
+					choiceThree.innerHTML = "";
+				}
+				function choice(option)	
+				{
+					//elementary, middle, high, college, work, retirement
+					if(option == "one")
+					{
+						creativity += getRandomInteger(1,10);
+					}
+					else
+					{
+						if(option == "two")
+						{
+							intelligence += getRandomInteger(1,5);
+						}
+						else
+						{
+							surprise += getRandomInteger(1,3);
+						}
+					}
+
+					if(getRandomInteger(0,1) == 1)
+						age += getRandomInteger(1,2);
+					
+					if(isNextStageReady() == false)
+						getEvent();
+					else
+						return;
+				}
+				
+				
+				
+				function display()
+				{
+					text.innerHTML = msg;
+					characterStats.innerHTML = "ENERGY: " + "<progress id = 'energy'" + " value= " + energy + " max = 100" + ">" + "</progress>" + "</br>" + "HEALTH: " + "<progress id = 'health'" + " value= " + health + " max = 100" + ">" + "</progress>"  + "</br>" + "MONEY: " + "$ " + money;							
+					characterAge.innerHTML = stra + " " + strb + ", " + "Age: " + age;
+					
+					choiceOne.innerHTML = choiceA;
+					choiceTwo.innerHTML = choiceB;
+					choiceThree.innerHTML = choiceC;
+				}
+			
+			</script>
+	</head>
+	<body onload = "initialize();">
+		<div id = "text"></div>
+		<div id = "age"></div>
+		<div id = "imgDiv">
+			<img id = "charImg"/> 
+		</div> </br>
+		<div id = "stats"></div>
+		<div id = "textArea"></div>
+
+		<div id = "one" onclick = "choice('one');"></div>
+		<div id = "two" onclick = "choice('two');"></div>
+		<div id = "three" onclick = "choice('three');"></div>
+	</body>
+</html>
