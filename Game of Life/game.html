@@ -15,8 +15,8 @@
 					elementaryChoices = ["Draw;Puzzles;Neither;", "Present;Read;Daydream;", "Dance;Chess;Tag;", "In your art class, making clay models.;In the library, studying for next period’s test.;In the cafeteria with the rest of your friends.;", "A scarf that you knitted;A copy of one of your favorite books;A video game;"];
 					
 				
-					highEvents = ["Your best friend wants to hang out. Where do you want to hang out?","The school is having multiple competitions. Which do you want to attend?","The school is having multiple competitions. Which do you want to attend?","Your high school is giving you the chance to host an event. Which of the following do you want to do?","You have a final for chemistry coming up next week, but today is a weekend. What do you want to do?", "You have been recommended by your favorite teacher to have a leadership position. Which do you want to apply for?","filler1e","filler1f","filler1g","filleragain","morefiller","amazingfiller","pleasebeenoughfiller","filler","filler","filler","filler","filler"];
-					highChoices = ["To the movies!;To the library!;The internet cafe!;","Singing Competition;Math Competition;Neither;","Drawing Contest;Programming Competition;Track Competition;","Host a dance.;Host a hackathon.;Give the job to someone else.;","Work on your creative writing assignment instead.;Spend your whole day studying for your final.;Go out with your friends to the city.;","Yearbook editor;Captain of the debate team;You’d rather not do any.;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;","a;b;c;"];
+					highEvents = ["Your best friend wants to hang out. Where do you want to hang out?","The school is having multiple competitions. Which do you want to attend?","The school is having multiple competitions. Which do you want to attend?","Your high school is giving you the chance to host an event. Which of the following do you want to do?","You have a final for chemistry coming up next week, but today is a weekend. What do you want to do?", "You have been recommended by your favorite teacher to have a leadership position. Which do you want to apply for?"];
+					highChoices = ["To the movies!;To the library!;The internet cafe!;","Singing Competition;Math Competition;Neither;","Drawing Contest;Programming Competition;Track Competition;","Host a dance.;Host a hackathon.;Give the job to someone else.;","Work on your creative writing assignment instead.;Spend your whole day studying for your final.;Go out with your friends to the city.;","Yearbook editor;Captain of the debate team;You’d rather not do any.;"];
 
 					collegeEvents = ["What team do you want to join?","You have room for another class on a Wednesday morning. Which class do you want to take?","You’ve heard rumors that a celebrity will be coming to your school. You hope it will be","You have the opportunity to go abroad. What would you like to do, and where would you like to go?","It is a Saturday evening. How do you want to spend the night?","You would like to participate in some extracurriculars. Which of the following seems to interest you most?","Your professors want help. Which do you help?","Which job fair do you want to go to?"];
 					collegeChoices = ["Dance team;Robotics team;Basketball team;","University Writing 101;Intro to Cybersecurity;No class, because you want to sleep in more.;","Your favorite singer;Your favorite game designer;Your favorite athlete;"
@@ -41,8 +41,8 @@
 					dataArray = location.search.split("=");
 					stra = dataArray[1].split("&")[0];
 					strb = dataArray[2].split("&")[0];
-					characterImage = document.getElementById("charImg");
-					charImg.src = "images/" + dataArray[3] + ".png";
+					//characterImage = document.getElementById("charImg");
+					//charImg.src = "images/" + dataArray[3] + ".png";
 					msg = "Hello, " + stra + " " + strb + "!";
 					
 					collegeDebt = false;
@@ -376,7 +376,7 @@
 					
 					if(option == "retired")
 					{
-						msg += "You decided to retire. You lived until " + getRandomInteger(age, 100) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journies.";
+						msg = msg + "You decided to retire. You lived until " + getRandomInteger(age, 100) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journies.";
 					}	
 					else
 					{
@@ -444,9 +444,9 @@
 	<body onload = "initialize();">
 		<div id = "text"></div>
 		<div id = "age"></div>
-		<div id = "imgDiv">
+		<!--<div id = "imgDiv">
 			<img id = "charImg"/> 
-		</div> </br>
+		</div> </br>-->
 		<div id = "stats"></div>
 		<div id = "textArea"></div>
 
