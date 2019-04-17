@@ -2,6 +2,8 @@ body
 {
 	background-image: url('images/three.jpg');
 	display: absolute;
+	font-family: "Comfortaa";
+	font-weight: bold;
 }
 
 div
