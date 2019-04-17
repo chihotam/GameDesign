@@ -1,33 +1,28 @@
+body
+{
+	background-image: url('images/three.jpg');
+	display: absolute;
+}
+
 div
 {
 	text-align: center;
 }
 
-div#text
+#text
 {
 	text-align: center;
 	font-size: 500%;
 }
 
-img#charImg
-{
-	max-width: 100;
-	max-height: 100;
-}
-
-form
-{
-	text-align: center;
-}
-
-div#imgDiv
+#imgDiv
 {
 	display: inline-block;
 }
 
-div#stats
+#stats
 {
-	display: inline-block;
+	display: absolute;
 	text-align: left;
 }
 	
