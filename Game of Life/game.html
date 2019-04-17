@@ -22,9 +22,6 @@
 					collegeChoices = ["Dance team;Robotics team;Basketball team;","University Writing 101;Intro to Cybersecurity;No class, because you want to sleep in more.;","Your favorite singer;Your favorite game designer;Your favorite athlete;"
 ,"Volunteer to build a school in Spain with your classmates.;Participate in an internship in Tokyo.;Learn a new language in Paris.;","Attending a concert;Studying for your test;Sitting on the campus with your friends;","Become an editor for your college newspaper.;Become a research assistant in one of the labs.;Create your own club.;","Graphics Design Professor;Comptuer Science Professor;Try to help both!;","The Annual Fair of Arts;The Tech Industry;Try to attend both;"];
 
-					moneyEvents = ["Your school is having a career fair, and you are interested in some of the choices. Which will you go through with?","You want to do something outside of school. Do you want to"];
-					moneyChoices = ["Get a job at a photography studio.;Get a job at a startup tech company.;Get a job at a local cafe.;","Volunteer at the Museum of Modern Art.;Intern at a hedge fund.;Go to an internet cafe with your friends.;"];
-					
 					
 					workingEvents = ["Your co-worker asks you to take over their shift. Do you...","There is a work event coming up. You have the opportunity to host it.","You have the chance to be promoted, but only if you spend an excessive amount of time on a project. What will you do? ","Recently, you’ve been feeling unmotivated. Do you want to ","You feel that you are not being paid enough. What is your course of action?","You are currently leading a team, but there has been some miscommunication among you and the team members. You will…","You’re going to a job interview tomorrow. What are your plans for tonight?"];
 					workingChoices = ["Agree to work overtime.;Disagree and go home.;Disagree and go out for dinner.;","Host it.;Volunteer.;Pretend you didn’t hear about it.;","Spend your days and nights working on it.;Work on your own work only.;Decide to leave work early to spend time with a few friends.;","Work for more hours.;Take some time off to focus on yourself.;Spend a whole day in the city to distract yourself;","Create a plan to present your case.;Ignore it and hope for a promotion.;Complain to your coworkers.;","Focus on finishing the project, regardless of how they feel about you.;Spend more time with them individually, in order to foster better relations.;","Stay up preparing for it.;Spend some time meditating to relieve your stress.;Stay up re-watching some episodes of your favorite show.;"];
@@ -193,6 +190,7 @@
 				{
 					if(age >= 100)
 					{
+						
 						endGame("none");
 						return;
 					}
@@ -352,7 +350,7 @@
 						}
 						if(getRandomInteger(0,1) == 1)
 						{
-							age += getRandomInteger(10,15);
+							age += getRandomInteger(14,15);
 						}
 						display();
 						checkNextStageReady();
@@ -373,7 +371,7 @@
 					choiceA = "";
 					choiceB = "";
 					choiceC = "";
-					
+					msg = "";
 					if(option == "retired")
 					{
 						msg = msg + "You decided to retire. You lived until " + getRandomInteger(age, 100) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journies.";
