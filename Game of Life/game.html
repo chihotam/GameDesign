@@ -375,13 +375,16 @@
 					msg = "";
 					if(option == "retired")
 					{
-						msg = msg + "You decided to retire. You lived until " + getRandomInteger(age, 100) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journies.";
+						characterAge.remove();
+						characterStats.remove();
+						document.body.style.backgroundImage = "url('confetti.jpg')";
+						msg = msg + "You decided to retire. You lived until " + getRandomInteger(age, 100) + "." + " Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journeys.";
 					}	
 					else
 					{
 						if(option == "none")
 						{
-							msg += "You continued to work until your last days. You lived until " + getRandomInteger(age, 120) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journies.";
+							msg += "You continued to work until your last days. You lived until " + getRandomInteger(age, 120) + "." + "Technology has changed right before your eyes. You were able to be a witness of many life changing events. As you and the older generations pass, you smile as the youth continues with their own journeys.";
 						}
 					}
 					
@@ -397,29 +400,29 @@
 						}
 						else
 						{
-							msg += stra + ", money did not mean everything to you. You had the courage to speak and stand your ground when times were rough."; 
+							msg += " " + stra + ", money did not mean everything to you. You had the courage to speak and stand your ground when times were rough."; 
 						}
 					}
 						
 					if(creativity > intelligence && creativity > surprise)
 					{
-						msg += stra + ", you always preferred the arts over science and math. Like the ever changing technology around you, you slowly perfected your craft with a satisfying ending.";  
+						msg += " " + stra + ", you always preferred the arts over science and math. Like the ever changing technology around you, you slowly perfected your craft with a satisfying ending.";  
 					}
 					else
 					{
 						if(intelligence > creativity && intelligence > surprise)
 						{
-							msg += stra + ", you always preferred science and math over the arts. As you watch technology grow around you, you were a part of bringing change and innovation.";
+							msg += " " + stra + ", you always preferred science and math over the arts. As you watch technology grow around you, you were a part of bringing change and innovation.";
 						}
 						else
 						{
 							if(intelligence == creativity)
 							{
-								msg += stra + ", you were always conflcited about liking science and math or the arts more. Both provided endless hours of entertainment and thinking, and helping build your character.";
+								msg += " " + stra + ", you were always conflicted about liking science and math or the arts more. Both provided endless hours of entertainment and thinking, and helping build your character.";
 							}
 							else
 							{
-							msg += stra + ", you never tunneled into one profession. You wanted to experience everything the world had to offer, and that has helped build your character.";
+							msg += " " + stra + ", you never tunneled into one profession. You wanted to experience everything the world had to offer, and that has helped build your character.";
 							}
 						}
 					}
@@ -441,8 +444,8 @@
 			</script>
 	</head>
 	<body onload = "initialize();">
-		<div id = "text"></div>
 		<div id = "age"></div>
+		<div id = "text"></div>
 		<!--<div id = "imgDiv">
 			<img id = "charImg"/> 
 		</div> </br>-->

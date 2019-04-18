@@ -1,20 +1,38 @@
 body
 {
 	background-image: url('images/three.jpg');
+	background-attachment: fixed;
 	display: absolute;
 	font-family: "Comfortaa";
 	font-weight: bold;
+	text-align: center;
 }
 
-div
+#age
 {
-	text-align: center;
+	padding-top: 1%;
+	padding-bottom: 3%;
+	font-size: 150%;
+	color: white;
+}
+#one, #two, #three {
+	padding: 1%;
+}
+#one:hover, #two:hover, #three:hover {
+	font-size: 175%;
+}
+
+#choices {
+	cursor: pointer;
+	font-size: 150%;
 }
 
 #text
 {
 	text-align: center;
-	font-size: 500%;
+	font-size: 300%;
+	padding: 3%;
+	background-color: rgba(255, 255, 255, .7);
 }
 
 #imgDiv
@@ -26,5 +44,6 @@ div
 {
 	display: absolute;
 	text-align: left;
+	font-size: 150%;
 }
 	
